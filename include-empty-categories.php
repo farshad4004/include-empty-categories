@@ -19,3 +19,11 @@ add_filter('wpseo_sitemap_exclude_taxonomy', function ($value, $taxonomy) {
     }
     return $value;
 }, 10, 2);
+
+add_filter('get_terms_args', function ($args, $taxonomies) {
+    if (in_array('product_cat', $taxonomies)) {
+        $args['hide_empty'] = false; // نمایش دسته‌بندی‌های خالی
+    }
+    return $args;
+}, 10, 2);
+
